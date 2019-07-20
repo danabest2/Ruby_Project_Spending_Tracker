@@ -2,8 +2,8 @@ require_relative('../db/sql_runner')
 
 class Spending_type
 
-  attr_reader :id
-  attr_accessor :tag
+  # attr_reader :id
+  attr_accessor :id, :tag
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

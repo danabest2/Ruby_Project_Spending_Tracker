@@ -1,0 +1,32 @@
+<h2>Add new transaction</h2>
+  <form method="POST" action="/transactions">
+    <div class="form-wrapper">
+
+      <div class="form-el">
+        <label for="value">Value:</label>
+        <input type="text" name="value" id="value"/>
+      </div>
+
+  <div class="form-el">
+    <label for="merchant_select">Select Merchant:</label>
+    <select merchant="merchant_id" id="merchant_select">
+      <% @merchants.each do |merchant| %>
+          <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
+      <% end %>
+    </select>
+  </div>
+
+    <div class="form-el">
+      <label for="spending_type_select">Select Spending:</label>
+      <select spending_type="spending_type_id" id="spending_type_select"> %>
+        <% @spending_types.each do |spending_type| %>
+            <option value=<%= spending_type.id %>><%= spending_type.tag %></option>
+        <% end %>
+
+      </select>
+    </div>
+
+
+    </div>
+
+  </form>
