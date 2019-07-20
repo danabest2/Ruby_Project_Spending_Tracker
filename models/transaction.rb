@@ -5,7 +5,7 @@ require_relative("./spending_type.rb")
 class Transaction
 
   # attr_reader :id, :value
-  attr_accessor :id, :value
+  attr_accessor :id, :value, :spending_type_id, :merchant_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -47,15 +47,24 @@ class Transaction
       @id = id.to_i
   end
 
-  def self.delete_all()
-          sql = "DELETE FROM transactions"
-          SqlRunner.run(sql)
-  end
+  def self.all()
+      sql = "SELECT * FROM transactions"
+      transactions = SqlRunner.run(sql)
+      result = transactions.map { |transaction| Transaction.new( transaction ) }
+      return result
+    end
+
 
   def update()
-            sql = "UPDATE tickets SET (film_id, customer_id) = ($1, $2) WHERE id = $3"
-            values = [@film_id, @customer_id, @id]
-            SqlRunner.run(sql, values)
-      end
+      sql = "UPDATE transactions SET (spending_type_id, merchant_id) = ($1, $2) WHERE id = $3"
+      values = [@spending_type_id, @merchant_id, @id]
+      SqlRunner.run(sql, values)
+  end
+
+  def self.delete_all()
+      sql = "DELETE FROM transactions"
+      SqlRunner.run(sql)
+  end
+
 
 end

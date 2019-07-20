@@ -3,25 +3,25 @@ require_relative('../db/sql_runner')
 class Spending_type
 
   attr_reader :id
-  attr_accessor :type
+  attr_accessor :tag
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @type = options['type']
+    @tag = options['tag']
   end
 
 
   def save()
       sql = "INSERT INTO spending_types
       (
-        type
+        tag
       )
         VALUES
       (
         $1
       )
       RETURNING id"
-      values = [@type]
+      values = [@tag]
       result = SqlRunner.run(sql, values)
       id = result.first["id"]
       @id = id.to_i
@@ -35,8 +35,8 @@ class Spending_type
     end
 
   def update()
-        sql = "UPDATE spending_types SET (type) = ($1) WHERE id = $2"
-        values = [@type, @id]
+        sql = "UPDATE spending_types SET (tag) = ($1) WHERE id = $2"
+        values = [@tag, @id]
         SqlRunner.run(sql, values)
   end
 
@@ -47,10 +47,10 @@ class Spending_type
   end
 
   def delete()
-  sql = "DELETE FROM spending_types
-  WHERE id = $1"
-  values = [@id]
-  SqlRunner.run(sql, values)
+      sql = "DELETE FROM spending_types
+      WHERE id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
   end
 
 end

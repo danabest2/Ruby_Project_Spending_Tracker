@@ -2,9 +2,9 @@ DROP TABLE transactions;
 DROP TABLE merchants;
 DROP TABLE spending_types;
 
-CREATE TABLE spending_types (
+CREATE TABLE spending_types(
   id SERIAL8 primary key,
-  type VARCHAR(255)
+  tag VARCHAR(255)
 );
 
 CREATE TABLE merchants(
@@ -12,7 +12,7 @@ CREATE TABLE merchants(
   name VARCHAR(255)
 );
 
-CREATE TABLE transactions (
+CREATE TABLE transactions(
   id SERIAL8 primary key,
   value INT4,
   spending_type_id INT8 REFERENCES spending_types(id),
