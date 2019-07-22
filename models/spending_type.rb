@@ -49,7 +49,7 @@ options = [@id, @tag]
     end
 
   def update()
-        sql = "UPDATE spending_types SET (tag) = ($1) WHERE id = $2"
+        sql = "UPDATE spending_types SET tag = ($1) WHERE id = $2"
         values = [@tag, @id]
         SqlRunner.run(sql, values)
   end
