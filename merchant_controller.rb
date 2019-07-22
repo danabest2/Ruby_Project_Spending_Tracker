@@ -20,3 +20,20 @@ post '/merchants' do
   Merchant.new(params).save
   redirect to '/merchants'
 end
+
+get '/merchants/:id' do
+  @merchants = Merchant.find(params['id'].to_i)
+  erb( :"merchant/show" )
+end
+
+
+post '/merchants' do # create
+  @merchant = Merchant.new( params )
+  @merchant.save()
+  erb(:"merchant/create" )
+end
+
+get '/merchants/:id/edit' do
+  @merchant = Merchants.find(params[:id])
+  erb(:"merchant/edit")
+end

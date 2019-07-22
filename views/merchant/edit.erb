@@ -1,0 +1,16 @@
+<h3>Edit<%=@merchant %></h3>
+
+<form method="POST" action="/merchants/<%= @merchant.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="Name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= @merchant.name %>"/>
+    </div>
+
+
+    <div class="form-el">
+      <input type="submit" value="Submit merchant"/>
+    </div>
+
+    </div>
