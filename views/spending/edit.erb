@@ -1,0 +1,16 @@
+<h3>Edit<%=@spending_type %></h3>
+
+<form method="POST" action="/spending_types/<%= @spending_type.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="Name">Tag:</label>
+      <input type="text" name="tag" id="tag" value="<%= @spending_type.tag %>"/>
+    </div>
+
+
+    <div class="form-el">
+      <input type="submit" value="Submit new spending tag"/>
+    </div>
+
+    </div>
