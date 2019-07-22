@@ -1,9 +1,9 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require_relative('models/merchant')
-require_relative('models/spending_type')
-require_relative('models/transaction')
-also_reload('./models/*')
+require_relative('../models/merchant')
+require_relative('../models/spending_type')
+require_relative('../models/transaction')
+also_reload('../models/*')
 
 get '/merchants' do
   @merchants = Merchant.all()
@@ -16,7 +16,7 @@ get '/merchants/new' do
   erb(:"merchant/new")
 end
 
-post '/merchants' do
+post '/merchants' do #create
   Merchant.new(params).save
   redirect to '/merchants'
 end
@@ -27,13 +27,18 @@ get '/merchants/:id' do
 end
 
 
-post '/merchants' do # create
+post '/merchants/:id' do # update
   @merchant = Merchant.new( params )
-  @merchant.save()
+  @merchant.update()
   erb(:"merchant/create" )
 end
 
 get '/merchants/:id/edit' do
   @merchant = Merchant.find(params[:id])
   erb(:"merchant/edit")
+end
+
+post '/merchants/:id/delete' do
+  Merchant.destroy(params[:id])
+  redirect to("/merchants")
 end
