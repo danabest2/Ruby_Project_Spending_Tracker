@@ -34,6 +34,6 @@ post '/merchants' do # create
 end
 
 get '/merchants/:id/edit' do
-  @merchant = Merchants.find(params[:id])
+  @merchant = Merchant.find(params[:id])
   erb(:"merchant/edit")
 end
