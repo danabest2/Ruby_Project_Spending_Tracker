@@ -8,6 +8,7 @@ also_reload('./models/*')
 
 get '/transactions' do
   @transactions = Transaction.all()
+  @transactions_total = Transaction.transactions_total()
   # @merchants = Merchant.all
   # @spending_types = Spending_type.all
   erb(:index)
@@ -38,6 +39,6 @@ end
 get '/transactions/:id/edit' do
   @merchants = Merchant.all
   @spending_types = Spending_type.all
-  @transactions = Transaction.find(params[:id])
+  @transaction = Transaction.find(params[:id])
   erb(:edit)
 end

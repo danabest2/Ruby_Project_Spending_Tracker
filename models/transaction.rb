@@ -11,7 +11,7 @@ class Transaction
     @id = options['id'].to_i if options['id']
     @value = options['value'].to_i
     @spending_type_id = options['spending_type_id'].to_i
-    @merchant_id = options['merchant_id'].to_i 
+    @merchant_id = options['merchant_id'].to_i
   end
 
 
@@ -91,6 +91,14 @@ class Transaction
       result = Transaction.new(transaction.first)
       return result
     end
+
+    def self.transactions_total()
+      array = self.all
+      total = 0
+      result = array.map {|value|total += value.value }
+      return total
+    end
+
 
 
 

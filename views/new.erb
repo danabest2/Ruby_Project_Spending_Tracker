@@ -9,7 +9,7 @@
 
   <div class="form-el">
     <label for="merchant_select">Select Merchant:</label>
-    <select merchant="merchant_id" id="merchant_select">
+    <select name="merchant_id" id="merchant_select">
       <% @merchants.each do |merchant| %>
           <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
       <% end %>
@@ -18,7 +18,7 @@
 
     <div class="form-el">
       <label for="spending_type_select">Select Spending:</label>
-      <select spending_type="spending_type_id" id="spending_type_select"> %>
+      <select name="spending_type_id" id="spending_type_select"> %>
         <% @spending_types.each do |spending_type| %>
             <option value=<%= spending_type.id %>><%= spending_type.tag %></option>
         <% end %>
