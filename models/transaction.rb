@@ -11,8 +11,9 @@ class Transaction
     @id = options['id'].to_i if options['id']
     @value = options['value'].to_i
     @spending_type_id = options['spending_type_id'].to_i
-    @merchant_id = options['merchant_id'].to_i
+    @merchant_id = options['merchant_id'].to_i 
   end
+
 
   def merchant
         sql = 'SELECT * FROM merchants
@@ -47,6 +48,18 @@ class Transaction
       @id = id.to_i
   end
 
+
+  def merchant()
+      merchant = Merchant.find(@merchant_id)
+      return merchant
+    end
+
+
+  def spending_type()
+      spending_type = Spending_type.find(@spending_type_id)
+      return spending_type
+  end
+
   def self.all()
       sql = "SELECT * FROM transactions"
       transactions = SqlRunner.run(sql)
@@ -56,8 +69,12 @@ class Transaction
 
 
   def update()
-      sql = "UPDATE transactions SET (spending_type_id, merchant_id) = ($1, $2) WHERE id = $3"
-      values = [@spending_type_id, @merchant_id, @id]
+      sql = "UPDATE transactions SET (
+      value,
+      spending_type_id,
+      merchant_id
+      ) = ($1, $2, $3) WHERE id = $4"
+      values = [@value, @spending_type_id, @merchant_id, @id]
       SqlRunner.run(sql, values)
   end
 
@@ -65,6 +82,16 @@ class Transaction
       sql = "DELETE FROM transactions"
       SqlRunner.run(sql)
   end
+
+  def self.find(id)
+      sql = "SELECT * FROM transactions
+      WHERE id = $1"
+      values = [id]
+      transaction = SqlRunner.run(sql, values)
+      result = Transaction.new(transaction.first)
+      return result
+    end
+
 
 
 end

@@ -1,0 +1,33 @@
+<h2>Edit<%=@transaction %></h2>
+
+<form method="POST" action="/transactions/<%= @transaction.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="Value">Value:</label>
+      <input type="text" name="value" id="value" value="<%= @transaction.value %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="merchant_id">Merchant:</label>
+      <input type="text" name="merchant_id" id="merchant_id" value="<%= @transaction.merchant_id%>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="spending_type">Spending Type:</label>
+      <select name="spending_type_id" id="spending_type_select" selected="<%= @transaction.spending_type_id  %>">
+        <% @spending_types.each do |spending_type| %>
+          <% if spending_type.id == @transaction.spending_type_id %>
+            <option value=<%= spending_type.id %> selected><%= spending_type.tag %></option>
+          <% else %>
+            <option value=<%= spending_type.id %>><%= spending_type.tag %></option>
+          <% end %>
+        <% end %>
+      </select>
+
+
+    <div class="form-el">
+      <input type="submit" value="Submit transaction"/>
+    </div>
+
+    </div>

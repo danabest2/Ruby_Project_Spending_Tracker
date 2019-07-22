@@ -1,5 +1,9 @@
-<h2><%= @transaction %></h2>
+<h2><%= @transaction.id %></h2>
 
 <p>Value: <%= @transaction.value %></p>
 <p>Merchant: <%= @transaction.merchant.name %></p>
 <p>Spending_type: <%=@transaction.spending_type.tag %></p>
+
+<a href="/transactions/<%= @transaction.value %>/edit">Edit</a>
+
+<form action="/transactions/<%= @transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

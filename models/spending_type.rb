@@ -2,8 +2,10 @@ require_relative('../db/sql_runner')
 
 class Spending_type
 
-  # attr_reader :id
-  attr_accessor :id, :tag
+  attr_accessor :tag
+  attr_reader :id
+
+options = [@id, @tag]
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -27,10 +29,22 @@ class Spending_type
       @id = id.to_i
   end
 
+  def merchants()
+      sql = "SELECT merchants.*
+      FROM merchants
+      INNER JOIN transactions
+      ON transactions.merchant_id = merchant.id
+      WHERE transactions.spending_type_id = $1"
+      values = [@id]
+      merchant_data = SqlRunner.run(sql, values)
+      merchants = Merchant.map_items(merchant_data)
+      return merchants
+  end
+
   def self.all()
       sql = "SELECT * FROM spending_types"
       spending_types = SqlRunner.run(sql)
-      result = spending_types.map{ |spending_type|  Spending_type.new(spending_type) }
+      result = spending_types.map{ |spending_type| Spending_type.new(spending_type) }
       return result
     end
 
@@ -39,6 +53,17 @@ class Spending_type
         values = [@tag, @id]
         SqlRunner.run(sql, values)
   end
+
+
+  def self.find(id)
+      sql = "SELECT * FROM spending_types
+      WHERE id = $1"
+      values = [id]
+      result = SqlRunner.run(sql, values).first
+      spending_type = Spending_type.new(result)
+      return spending_type
+  end
+
 
   def self.delete_all()
         sql = "DELETE FROM spending_types"
