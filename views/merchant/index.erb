@@ -1,14 +1,16 @@
 
 	<h3>Merchants A-Z</h3>
 
-	<table class="merchant_table">
-	<% for merchant in @merchants %>
-	<tr>
-	<td class="merchant_link"><a href="/merchants/<%=merchant.id %>"><%= merchant.name.capitalize %></a>
-	</tr>
-	<% end %>
-	</table>
 
-	<h4> <a href="/merchants/new"> <i class="material-icons">add</i>Add a new merchant</a> </h4>
+  <div id="merchant-wrapper">
+    <% @merchants.each do |merchant| %>
 
-	</div>
+    <div class="merchant">
+      <h3><a href="merchants/<%= merchant.id %>"><%=
+        merchant.name %></a></h3>
+
+      <p>merchant: <%= merchant.name %></p>
+    </div>
+
+    <% end %>
+  </div>
