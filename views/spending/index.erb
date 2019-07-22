@@ -11,5 +11,13 @@
     <p>spending tags: <%= spending_type.tag %></p>
   </div>
 
-  <% end %>
+
 </div>
+
+<div class="button_element">
+<form action='/spending_types/<%= spending_type.id %>/delete' method='POST' >
+    <input type = "submit" value='DELETE'>
+  </form>
+  </div>
+
+  <% end %>
