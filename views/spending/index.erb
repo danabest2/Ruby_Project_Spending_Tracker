@@ -1,0 +1,15 @@
+<h3>Spending Type</h3>
+
+
+<div id="spending_type-wrapper">
+  <% @spending_types.each do |spending_type| %>
+
+  <div class="spending_type">
+    <h3><a href="spending_types/<%= spending_type.id %>"><%=
+      spending_type.tag %></a></h3>
+
+    <p>merchant: <%= merchant.name %></p>
+  </div>
+
+  <% end %>
+</div>
