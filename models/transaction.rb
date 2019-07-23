@@ -49,17 +49,17 @@ class Transaction
       @id = id.to_i
   end
 
-
-  def merchant()
-      merchant = Merchant.find(@merchant_id)
-      return merchant
-    end
-
-
-  def spending_type()
-      spending_type = Spending_type.find(@spending_type_id)
-      return spending_type
-  end
+  # ##there are not needed
+  # def merchant()
+  #     merchant = Merchant.find(@merchant_id)
+  #     return merchant
+  #   end
+  # 
+  #
+  # def spending_type()
+  #     spending_type = Spending_type.find(@spending_type_id)
+  #     return spending_type
+  # end
 
   def self.all()
       sql = "SELECT * FROM transactions"
@@ -122,4 +122,13 @@ class Transaction
       result = transactions.map { |transaction| Transaction.new( transaction ) }
       return result
     end
+
+
+### budget vs total transaction values
+
+
+
+
+
+
 end

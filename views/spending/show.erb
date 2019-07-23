@@ -1,6 +1,13 @@
-<h3><%= @spending_type %></h3>
+<h3><%= @spending_type.tag %></h3>
 
 
-<p>Tag: <%= @spending_types.tag %></p>
 
-<a href="/spending_types/<%= @spending_types.id %>/edit">Edit </a>
+
+<a href="/spending_types/<%= @spending_type.id %>/edit">Edit </a>
+
+
+<div class="button_element">
+<form action='/spending_types/<%= @spending_type.id %>/delete' method='POST' >
+    <input type = "submit" value='DELETE'>
+  </form>
+  </div>

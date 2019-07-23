@@ -1,8 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require_relative('../models/merchant')
 require_relative('../models/spending_type')
-require_relative('../models/transaction')
 also_reload('../models/*')
 
 get '/spending_types' do
@@ -22,7 +20,7 @@ post '/spending_types' do #create
 end
 
 get '/spending_types/:id' do
-  @spending_types = Spending_type.find(params['id'].to_i)
+  @spending_type = Spending_type.find(params['id'].to_i)
   erb( :"spending/show" )
 end
 
@@ -35,7 +33,7 @@ end
 
 
 get '/spending_types/:id/edit' do
-  # @tags = Tag.all was not needed
+  # @tags = Tag.all was not n
   @spending_type = Spending_type.find(params[:id])
   erb(:"spending/edit")
 end
