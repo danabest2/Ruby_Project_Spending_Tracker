@@ -42,3 +42,10 @@ get '/transactions/:id/edit' do
   @transaction = Transaction.find(params[:id])
   erb(:edit)
 end
+
+
+post '/transactions/:id/delete' do
+  @transaction = Transaction.find(params[:id].to_i)
+  @transaction.delete
+  redirect to('/transactions')
+end
