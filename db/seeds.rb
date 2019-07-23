@@ -37,36 +37,42 @@ transaction1 = Transaction.new({
   'value' => 50,
   'spending_type_id' => spending_type1.id,
   'merchant_id' => merchant1.id,
+  'timestamp' => Date.strptime('28-12-2018', '%d-%m-%Y'),
    })
 
 transaction2 = Transaction.new({
   'value' => 60,
   'spending_type_id' => spending_type2.id,
   'merchant_id' => merchant1.id,
+  'timestamp' => Date.strptime('25-01-2019', '%d-%m-%Y'),
     })
 
 transaction3 = Transaction.new({
   'value' => 100,
   'spending_type_id' => spending_type3.id,
   'merchant_id' => merchant3.id,
+  'timestamp' => Date.strptime('24-02-2019', '%d-%m-%Y'),
     })
 
 transaction4 = Transaction.new({
   'value' => 30,
   'spending_type_id' => spending_type4.id,
   'merchant_id' => merchant4.id,
+  'timestamp' => Date.strptime('23-03-2019', '%d-%m-%Y'),
    })
 
 transaction5 = Transaction.new({
   'value' => 15,
   'spending_type_id' => spending_type1.id,
   'merchant_id' => merchant2.id,
+  'timestamp' => Date.strptime('22-04-2019', '%d-%m-%Y'),
   })
 
 transaction6 = Transaction.new({
     'value' => 40,
     'spending_type_id' => spending_type5.id,
     'merchant_id' => merchant1.id,
+    'timestamp' => Date.strptime('21-05-2019', '%d-%m-%Y'),
     })
 
 transaction1.save

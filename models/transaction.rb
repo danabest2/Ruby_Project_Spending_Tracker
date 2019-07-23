@@ -5,13 +5,14 @@ require_relative("./spending_type.rb")
 class Transaction
 
   # attr_reader :id, :value
-  attr_accessor :id, :value, :spending_type_id, :merchant_id
+  attr_accessor :id, :value, :spending_type_id, :merchant_id, :timestamp
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @value = options['value'].to_i
     @spending_type_id = options['spending_type_id'].to_i
     @merchant_id = options['merchant_id'].to_i
+    @timestamp = options['timestamp']
   end
 
 
@@ -35,14 +36,14 @@ class Transaction
   def save()
       sql = "INSERT INTO transactions
       (
-       value, spending_type_id, merchant_id
+       value, spending_type_id, merchant_id, timestamp
        )
         VALUES
       (
-        $1, $2, $3
+        $1, $2, $3, $4
       )
       RETURNING id"
-      values = [@value, @spending_type_id, @merchant_id]
+      values = [@value, @spending_type_id, @merchant_id,@timestamp]
       result = SqlRunner.run(sql, values)
       id = result.first["id"]
       @id = id.to_i
@@ -72,9 +73,10 @@ class Transaction
       sql = "UPDATE transactions SET (
       value,
       spending_type_id,
-      merchant_id
-      ) = ($1, $2, $3) WHERE id = $4"
-      values = [@value, @spending_type_id, @merchant_id, @id]
+      merchant_id,
+      timestamp
+      ) = ($1, $2, $3, $4) WHERE id = $5"
+      values = [@value, @spending_type_id, @merchant_id,@timestamp, @id]
       SqlRunner.run(sql, values)
   end
 
