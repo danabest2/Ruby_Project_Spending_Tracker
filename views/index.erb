@@ -1,20 +1,48 @@
+<link rel="stylesheet" href="/style.css">
 <h2>Transactions</h2>
-<a href='/transactions/new'>Add new transaction</a>
-<div id="transaction-wrapper">
-  <% @transactions.each do |transaction| %>
-
-  <div class="transaction">
-    <h3><a href="transactions/<%= transaction.id %>"><%=
-      transaction.value %></a></h3>
-    <p>spending_type: <%= transaction.spending_type.tag %></p>
-    <p>merchant: <%= transaction.merchant.name %></p>
-    <p><%= transaction.timestamp %></p>
-  </div>
-
-  <% end %>
-</div>
 
 
 <div class = "total-transactions">
 <p>Total Transactions value: <%= "£#{@transactions_total}" %></p>
 </div>
+
+<a href='/transactions/new'>Add new transaction</a>
+
+
+<table>
+    <tr>
+      <th>Value</th>
+      <th>Spending tag</th>
+      <th>"Merchant"</th>
+      <th>"Time stamp"</th>
+    </tr>
+</table>
+<!-- <div id="transaction-wrapper"> -->
+  <% @transactions.each do |transaction| %>
+
+  <!-- <div class="transaction"> -->
+<table>
+
+
+    <tr>
+      <td>
+        <h3 class="FirstColumn"><a href="transactions/<%= transaction.id %>"><%=
+        transaction.value %></a></h3>
+      </td>
+      <td>
+        <p>spending type: <%= transaction.spending_type.tag %></p>
+      </td>
+      <td>
+        <p>merchant: <%= transaction.merchant.name %></p>
+      </td>
+      <td>
+        <p><%= transaction.timestamp %></p>
+      </td>
+    </tr>
+</table>
+
+<!-- </div> -->
+
+
+  <% end %>
+<!-- </div> -->

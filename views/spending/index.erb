@@ -1,5 +1,6 @@
 <h3>Spending Type</h3>
 
+<a href='/spending_types/new'>Add new spending tag</a>
 
 <div id="spending_type-wrapper">
   <% @spending_types.each do |spending_type| %>
@@ -8,17 +9,9 @@
     <h3><a href="spending_types/<%= spending_type.id %>"><%=
       spending_type.tag %></a></h3>
 
-    <p>spending tags: <%= spending_type.tag %></p>
+    <p>spending: <%= spending_type.tag %></p>
   </div>
 
 </div>
-
-<div class="button_element">
-<form action='/spending_types/<%= spending_type.id %>/delete' method='POST' >
-    <input type = "submit" value='DELETE'>
-  </form>
-  </div>
-
-
 
   <% end %>

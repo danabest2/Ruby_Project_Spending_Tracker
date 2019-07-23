@@ -21,7 +21,7 @@ post '/merchants' do #create
 end
 
 get '/merchants/:id' do
-  @merchants = Merchant.find(params['id'].to_i)
+  @merchant = Merchant.find(params['id'].to_i)
   erb( :"merchant/show" )
 end
 

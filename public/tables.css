@@ -1,0 +1,28 @@
+table {
+  width: 90%;
+  margin: 10px auto;
+}
+
+th {
+    width: 22.5%;
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: lightblue;
+}
+
+td {
+    width: 22.5%;
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.FirstColumn{
+  width: 50%;
+  text-align: right;
+}

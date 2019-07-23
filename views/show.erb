@@ -2,10 +2,9 @@
 
 <table>
 
-
 <p>Value: <%= @transaction.value %></p>
 <p>Merchant: <%= @transaction.merchant.name.capitalize %></p>
-<p>Spending_type: <%=@transaction.spending_type.tag %></p>
+<p>Spending type: <%=@transaction.spending_type.tag %></p>
 
 <a href="/transactions/<%= @transaction.id %>/edit">Edit</a>
 
