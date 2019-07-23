@@ -43,6 +43,3 @@ post '/merchants/:id/delete' do
     @merchant.delete
     redirect to('/merchants')
 end
-
-
-  
