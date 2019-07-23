@@ -35,6 +35,7 @@ end
 
 
 get '/spending_types/:id/edit' do
+  # @tags = Tag.all was not needed
   @spending_type = Spending_type.find(params[:id])
   erb(:"spending/edit")
 end
