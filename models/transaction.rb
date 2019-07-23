@@ -109,7 +109,17 @@ class Transaction
       return total
     end
 
+### extension; sort transaction by timestamp
 
+#     def self.transactions_sort
+#       array = self.all
+# timestamps_array.sort! { |a, b|  b.timestamp <=> a.timestamp }
+#       return
 
-
+    def self.all()
+      sql = "SELECT * FROM transactions ORDER BY timestamp DESC"
+      transactions = SqlRunner.run( sql )
+      result = transactions.map { |transaction| Transaction.new( transaction ) }
+      return result
+    end
 end
