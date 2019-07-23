@@ -22,9 +22,14 @@
         <% @spending_types.each do |spending_type| %>
             <option value=<%= spending_type.id %>><%= spending_type.tag %></option>
         <% end %>
-
       </select>
     </div>
+
+    <div class="form-el">
+      <label for="timestamp">Time:</label>
+      <input type="text" name="timestamp" id="timestamp"/>
+    </div>
+
 
     <div class="form-el">
         <input type="submit" value="Sumbit transaction"/>
