@@ -39,6 +39,10 @@ get '/merchants/:id/edit' do
 end
 
 post '/merchants/:id/delete' do
-  Merchant.destroy(params[:id])
-  redirect to("/merchants")
+    @merchant = Merchant.find(params[:id].to_i)
+    @merchant.delete
+    redirect to('/merchants')
 end
+
+
+  

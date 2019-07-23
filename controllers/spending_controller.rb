@@ -39,7 +39,8 @@ get '/spending_types/:id/edit' do
   erb(:"spending/edit")
 end
 
-post '/spending_type/:id/delete' do
-  Spending_type.destroy(params[:id])
+post '/spending_types/:id/delete' do
+  @spending_type = Spending_type.find(params[:id].to_i)
+  @spending_type.delete
   redirect to('/spending_types')
 end

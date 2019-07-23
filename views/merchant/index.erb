@@ -1,5 +1,5 @@
 
-	<h3>Merchants A-Z</h3>
+	<h3>Merchants All</h3>
 
 
   <div id="merchant-wrapper">
@@ -12,5 +12,14 @@
       <p>merchant: <%= merchant.name %></p>
     </div>
 
-    <% end %>
+
   </div>
+
+
+	<div class="button_element">
+	<form action='/merchants/<%= merchant.id %>/delete' method='POST' >
+	    <input type = "submit" value='DELETE'>
+	  </form>
+	  </div>
+
+  <% end %>
