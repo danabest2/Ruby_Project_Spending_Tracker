@@ -1,17 +1,31 @@
-<h3>Spending Type</h3>
+<nav class="spending-nav">
+  <ul>
+    <li><h3>Spending Type</h3></li>
+    <li><h3><a href='/spending_types/new'>Add new spending tag</a>
+    </h3></li>
+  </ul>
+</nav>
 
-<a href='/spending_types/new'>Add new spending tag</a>
 
 <div id="spending_type-wrapper">
-  <% @spending_types.each do |spending_type| %>
 
-  <div class="spending_type">
-    <h3><a href="spending_types/<%= spending_type.id %>"><%=
-      spending_type.tag %></a></h3>
 
-    <p>spending: <%= spending_type.tag %></p>
-  </div>
+  <table class="spending-table">
+    <tr>
+      <th>Spending Type</th>
+      <th></th>
+    </tr>
 
-</div>
+    <% @spending_types.each do |spending_type| %>
+
+    <tr>
+      <td><div class="spending_type">
+        <h3><a<%= spending_type.id %>"><%=
+          spending_type.tag %></a></h3>
+      </td>
+      <td><a href="spending_types/<%= spending_type.id %>">Show details</a></td>
+    </tr>
 
   <% end %>
+
+  </table>

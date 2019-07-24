@@ -1,19 +1,29 @@
 
-	<h3>Merchants All</h3>
-
-<a href='/merchants/new'>Add new merchant</a>
+<nav class="merchant-nav">
+	<ul>
+		<li><h3>Merchants All</h3></li>
+		<li><h3><a href='/merchants/new'>Add New Merchant</a></h3></li>
+	</ul>
+</nav>
 
   <div id="merchant-wrapper">
+
+<table class="merchant-table">
+	<tr>
+		<th>Merchant Name</th>
+		<th></th>
+	</tr>
+
     <% @merchants.each do |merchant| %>
 
-    <div class="merchant">
-      <h3><a href="merchants/<%= merchant.id %>"><%=
-        merchant.name %></a></h3>
+	<tr>
+		<td>
+    <p><div class="merchant">
+      <h3><a<%= merchant.id %>"><%=
+        merchant.name %></a></h3></p>
+		</td>
+		<td><a href="merchants/<%= merchant.id %>">Show details</a></td>
+	</tr>
 
-      <p>merchant: <%= merchant.name %></p>
-    </div>
-
-  </div>
-
-
-  <% end %>
+	  <% end %>
+</table>

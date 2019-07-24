@@ -1,0 +1,53 @@
+
+
+<nav class = "transaction-nav">
+
+  <ul>
+    <li><h2>Transactions</h2></li>
+    <li><h3><div class="total-transaction">
+      <p>Total Transactions Value: <%= "£#{@transactions_total}" %></p>
+    </div></h3>
+    </li>
+    <li><h3><a href='/transactions/new'>Add New Transaction</a></h3></li>
+  </ul>
+</nav>
+
+<table>
+    <tr>
+      <th>Value</th>
+      <th>Spending tag</th>
+      <th>Merchant</th>
+      <th>Time stamp</th>
+      <th></th>
+    </tr>
+<!-- <div id="transaction-wrapper"> -->
+  <% @transactions.each do |transaction| %>
+
+  <!-- <div class="transaction"> -->
+
+    <tr>
+      <td>
+        <h3 class="FirstColumn"><%=
+        transaction.value %></a></h3>
+      </td>
+      <td>
+        <p><%= transaction.spending_type.tag %></p>
+      </td>
+      <td>
+        <p><%= transaction.merchant.name %></p>
+      </td>
+      <td>
+        <p><%= transaction.timestamp %></p>
+      </td>
+      <td>
+        <a href="transactions/<%= transaction.id %>">Show details</a>
+      </td>
+    </tr>
+      <% end %>
+</table>
+
+<!-- </div> -->
+
+
+
+<!-- </div> -->

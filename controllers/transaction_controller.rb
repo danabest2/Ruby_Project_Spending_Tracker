@@ -11,13 +11,13 @@ get '/transactions' do
   @transactions_total = Transaction.transactions_total()
   # @merchants = Merchant.all
   # @spending_types = Spending_type.all
-  erb(:index)
+  erb(:"transaction/index")
 end
 
 get '/transactions/new' do
   @merchants = Merchant.all
   @spending_types = Spending_type.all
-  erb(:new)
+  erb(:"transaction/new")
 end
 
 post '/transactions' do
@@ -27,20 +27,20 @@ end
 
 get '/transactions/:id' do
   @transaction = Transaction.find(params['id'])
-  erb(:show)
+  erb(:"transaction/show")
 end
 
 post '/transactions' do # create
   @transaction = Transaction.new( params )
   @transaction.save()
-  erb( :create )
+  erb( :"transaction/create" )
 end
 
 get '/transactions/:id/edit' do
   @merchants = Merchant.all
   @spending_types = Spending_type.all
   @transaction = Transaction.find(params[:id])
-  erb(:edit)
+  erb(:"transaction/edit")
 end
 
 

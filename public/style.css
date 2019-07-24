@@ -1,4 +1,84 @@
-body {
-font-family: 'Oxygen', sans-serif;
-background-color: yellow;
+/*Horizontal Nav Layout*/
+.layout-nav
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.layout-nav
+li {
+  float: left;
+}
+.layout-nav
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.layout-nav
+li a:hover {
+  background-color: #111;
+}
+
+/*Transaction Nav*/
+.transaction-nav
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.transaction-nav
+li a {
+  display: block;
+  color: #CD6155;
+  text-align: left;
+  padding: 20px 5px;
+}
+.transaction-nav
+li {
+  display: inline;
+}
+
+/*Merchants Nav*/
+
+.merchant-nav
+ul {
+  list-style-type: square;
+  margin: 0;
+  padding: 0;
+}
+.merchant-nav
+li a {
+  display: block;
+  color: #CD6155;
+  text-align: left;
+  padding: 20px 5px;
+}
+.merchant-nav
+li {
+  display: inline;
+}
+
+/*Spending - Nav*/
+
+.spending-nav
+ul {
+  list-style-type: square;
+  margin: 0;
+  padding: 0;
+}
+.spending-nav
+li a {
+  display: block;
+  color: #CD6155;
+  text-align: left;
+  padding: 20px 5px;
+}
+.spending-nav
+li {
+  display: inline;
 }
