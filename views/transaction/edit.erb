@@ -1,7 +1,7 @@
-<h2>Edit<%=@transaction %></h2>
+<h2>Edit Transaction</h2>
 
 <form method="POST" action="/transactions/<%= @transaction.id %>">
-  <div class="form-wrapper">
+  <!-- <div class="form-wrapper"> -->
 
     <div class="form-el">
       <label for="Value">Value:</label>
@@ -10,7 +10,16 @@
 
     <div class="form-el">
       <label for="merchant_id">Merchant:</label>
-      <input type="text" name="merchant_id" id="merchant_id" value="<%= @transaction.merchant_id%>"/>
+      <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id  %>">
+        <% @merchants.each do |merchant| %>
+          <% if merchant.id == @transaction.merchant_id %>
+            <option value=<%= merchant.id %> selected><%= merchant.name %></option>
+          <% else %>
+            <option value=<%= merchant.id %>><%= merchant.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+
     </div>
 
     <div class="form-el">
@@ -31,3 +40,31 @@
     </div>
 
     </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
